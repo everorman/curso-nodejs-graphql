@@ -1,5 +1,10 @@
+# Llamamos los types con el nombre de la entidad. Si es conformado por varias palabras se maneja en camelCase
+
 type Query {
   hello: String
+  #Productos
+  product(id: ID!): Product
+  products: [Product!]!
 }
 
 type Product {
