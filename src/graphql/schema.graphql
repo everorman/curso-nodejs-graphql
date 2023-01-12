@@ -1,10 +1,15 @@
-# Llamamos los types con el nombre de la entidad. Si es conformado por varias palabras se maneja en camelCase
-
+# Llamamos los types con el nombre de la entidad. Si es conformado por varias palabras se maneja en camelCase.
+# Los querys son usados para realizar consultas.
 type Query {
   hello: String
   #Productos
   product(id: ID!): Product
   products: [Product!]!
+}
+
+#Los mutations se encargan de modificar el estado o mutar la informacion CRUD
+type Mutation {
+  addProduct(dto: CreateProductDto): Product
 }
 
 type Product {
@@ -14,4 +19,13 @@ type Product {
   description: String!
   image: String!
   createdAt: String!
+}
+
+# Pasan a ser nuestros DTOs, es una forma de agrupar varios argumentos
+input CreateProductDto {
+  name: String!
+  description: String!
+  image: String!
+  price: Int!
+  categoryId: ID!
 }
