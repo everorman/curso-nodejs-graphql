@@ -10,6 +10,8 @@ type Query {
 #Los mutations se encargan de modificar el estado o mutar la informacion CRUD
 type Mutation {
   addProduct(dto: CreateProductDto): Product
+  updateProduct(id: ID, dto: UpdateProductDto!): Product
+  deleteProduct(id: ID!): ID
 }
 
 type Product {
@@ -19,6 +21,14 @@ type Product {
   description: String!
   image: String!
   createdAt: String!
+  categoryId: ID!
+  category: Category!
+}
+
+type Category {
+  id: ID!
+  name: String!
+  image: String!
 }
 
 # Pasan a ser nuestros DTOs, es una forma de agrupar varios argumentos
@@ -28,4 +38,12 @@ input CreateProductDto {
   image: String!
   price: Int!
   categoryId: ID!
+}
+
+input UpdateProductDto {
+  name: String
+  description: String
+  image: String
+  price: Int
+  categoryId: ID
 }
