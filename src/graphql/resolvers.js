@@ -1,4 +1,5 @@
 const { getProduct, getProducts, addProduct, updateProduct, deleteProduct } = require('./product.resolvers')
+const { login } = require('./auth.response');
 
 const resolvers = {
   //Are used to retrieve data
@@ -11,7 +12,8 @@ const resolvers = {
   Mutation: {
     addProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    login
   }
 }
 module.exports = resolvers;

@@ -12,6 +12,7 @@ type Mutation {
   addProduct(dto: CreateProductDto): Product
   updateProduct(id: ID, dto: UpdateProductDto!): Product
   deleteProduct(id: ID!): ID
+  login(email: String!, password: String!): AuthResponse
 }
 
 type Product {
@@ -29,6 +30,18 @@ type Category {
   id: ID!
   name: String!
   image: String!
+}
+
+type AuthResponse {
+  access_token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  role: String!
+  createdAt: String!
 }
 
 # Pasan a ser nuestros DTOs, es una forma de agrupar varios argumentos
