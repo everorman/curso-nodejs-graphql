@@ -7,7 +7,10 @@ const checkJwt = require('./../utils/checkJwtGql');
 const addCategory = async (_, { dto }, context) => {
   const user = await checkJwt(context);
   checkRolesGql(user, ['admin'])
-  return service.create(dto);
+  return service.create({
+    ...dto,
+    image: dto.image.href
+  });
 }
 
 module.exports = { addCategory };
