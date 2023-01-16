@@ -1,5 +1,6 @@
 const { getProduct, getProducts, addProduct, updateProduct, deleteProduct } = require('./product.resolvers')
 const { login } = require('./auth.response');
+const { addCategory } = require('./category.resolvers');
 
 const resolvers = {
   //Are used to retrieve data
@@ -13,7 +14,8 @@ const resolvers = {
     addProduct,
     updateProduct,
     deleteProduct,
-    login
+    login,
+    addCategory
   }
 }
 module.exports = resolvers;
